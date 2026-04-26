@@ -1,0 +1,181 @@
+# Eagle Hubs Robots.txt
+# https://eaglehubs.com/robots.txt
+# Last Updated: 2024
+
+# Sitemap location
+Sitemap: https://eaglehubs.com/sitemap.xml
+
+# Default rules for all crawlers
+User-agent: *
+
+# Allow crawling of main content
+Allow: /
+Allow: /index.html
+Allow: /assets/
+
+# Block access to any admin or private areas (if they exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+
+# Block common spam/bot paths
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/cache/
+
+# Block access to search results pages to prevent crawl waste
+Disallow: /search?*
+Disallow: /*?search=
+Disallow: /*?q=
+
+# Block access to filtered/sorted listing pages with parameters
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?price=
+
+# Block duplicate content from URL parameters
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+# Allow major search engines full access
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: msnbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: msnbot-media
+Allow: /
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Baidu (Chinese search engine)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 3
+
+# Yandex (Russian search engine)
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexImages
+Allow: /assets/
+
+# Social Media Crawlers
+User-agent: Twitterbot
+Allow: /
+Allow: /*.jpg$
+Allow: /*.png$
+
+User-agent: facebookexternalhit
+Allow: /
+Allow: /*.jpg$
+Allow: /*.png$
+
+User-agent: Facebot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+Allow: /*.jpg$
+Allow: /*.png$
+
+# SEO and Analytics Tools
+User-agent: SemrushBot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: MJ12bot
+Allow: /
+
+# Block known bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SeekportBot
+Disallow: /
+
+# Image-specific crawlers
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Common crawl rules
+# Crawl-delay is respected by some bots (not Google)
+# Keep it reasonable to not slow down indexing
+
+# Rate limiting for aggressive crawlers
+User-agent: *
+Crawl-delay: 10
+
+# Allow data center IPs for monitoring
+# (Uncomment if needed for your monitoring services)
+# User-agent: UptimeRobot
+# Allow: /
+
+# User-agent: Pingdom.com
+# Allow: /
+
+# Block access to sensitive file types
+Disallow: /*.zip$
+Disallow: /*.rar$
+Disallow: /*.exe$
+Disallow: /*.bat$
+Disallow: /*.sh$
+
+# Allow access to important resources
+Allow: /assets/1.png
+Allow: /assets/2.png
+
+# End of robots.txt
