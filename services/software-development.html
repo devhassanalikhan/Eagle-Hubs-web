@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Development Services - Eagle Hubs</title>
+    <meta name="description" content="Eagle Hubs Software Development - Custom software, SaaS, mobile apps, websites, AI solutions, automation, and AI agents. Contact: +92 303 6055466">
+    <link rel="icon" type="image/png" href="../assets/1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'eagle-black': '#0a0a0a',
+                        'eagle-dark': '#1a1a1a',
+                        'eagle-gold': '#d4af37',
+                        'eagle-gold-light': '#f4d03f',
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'pulse-slow': 'pulse 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background: #0a0a0a; color: #fff; overflow-x: hidden; }
+        .glass-effect { background: rgba(26, 26, 26, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.1); }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37, #f4d03f, #d4af37); }
+        .text-gold-gradient { background: linear-gradient(135deg, #d4af37, #f4d03f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        
+        /* 3D Card Effects */
+        .service-card {
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .service-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Animated background particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #d4af37;
+            border-radius: 50%;
+            animation: float 8s infinite;
+        }
+        
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-body overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full overflow-hidden"><img src="../assets/1.png" class="w-full h-full object-cover"></div>
+                <span class="text-xl font-display font-bold">Eagle <span class="text-eagle-gold">Hubs</span></span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="../index.html" class="text-gray-300 hover:text-eagle-gold">Home</a>
+                <a href="../index.html#properties" class="text-gray-300 hover:text-eagle-gold">Properties</a>
+                <a href="../index.html#cars" class="text-gray-300 hover:text-eagle-gold">Automobiles</a>
+                <a href="../index.html#investments" class="text-gray-300 hover:text-eagle-gold">Investments</a>
+            </div>
+            <button class="md:hidden text-white p-2" onclick="toggleMobileMenu()"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden glass-effect px-4 py-4">
+            <a href="../index.html" class="block py-2 text-gray-300">Home</a>
+            <a href="../index.html#properties" class="block py-2 text-gray-300">Properties</a>
+            <a href="../index.html#cars" class="block py-2 text-gray-300">Automobiles</a>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <!-- Hero Section with 3D Animation -->
+        <section class="relative min-h-[90vh] flex items-center justify-center py-20 px-4 overflow-hidden">
+            <!-- Animated Background -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1920') center/cover"></div>
+                <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+                <div class="particle" style="top: 40%; left: 80%; animation-delay: 1s;"></div>
+                <div class="particle" style="top: 60%; left: 30%; animation-delay: 2s;"></div>
+                <div class="particle" style="top: 80%; left: 70%; animation-delay: 3s;"></div>
+                <div class="particle" style="top: 30%; left: 50%; animation-delay: 4s;"></div>
+            </div>
+            
+            <div class="relative z-10 text-center max-w-5xl mx-auto">
+                <div class="animate-float mb-6">
+                    <svg class="w-20 h-20 mx-auto text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-6 reveal active">Software <span class="text-gold-gradient">Development</span></h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto reveal active" style="transition-delay: 0.2s;">Transform your ideas into powerful digital solutions. We build custom software, mobile apps, websites, AI systems, and automation tools tailored to your business needs.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 reveal active" style="transition-delay: 0.4s;">
+                    <a href="https://wa.me/923036055466" class="gold-gradient text-eagle-black font-bold px-8 py-4 rounded-full hover:shadow-lg hover:shadow-yellow-500/30 transition-all text-base md:text-lg">Get Started</a>
+                    <a href="mailto:dev.hassanalikhan@gmail.com" class="px-8 py-4 border border-eagle-gold text-eagle-gold rounded-full hover:bg-eagle-gold hover:text-eagle-black transition-all text-base md:text-lg">Email Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info Banner -->
+        <section class="py-8 px-4 bg-eagle-dark border-y border-gray-800">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-gray-400 text-sm mb-2">For Software Development Inquiries</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+                    <a href="tel:+923036055466" class="text-eagle-gold font-bold text-lg hover:text-white transition-colors">📞 +92 303 6055466</a>
+                    <span class="hidden sm:inline text-gray-600">|</span>
+                    <a href="mailto:dev.hassanalikhan@gmail.com" class="text-eagle-gold font-bold text-lg hover:text-white transition-colors">✉️ dev.hassanalikhan@gmail.com</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="py-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4">Our <span class="text-gold-gradient">Services</span></h2>
+                    <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">Comprehensive software solutions for every business need</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Service 1: Custom Software Development -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Custom Software Development</h3>
+                        <p class="text-gray-400 text-sm mb-4">Tailored software solutions designed to meet your unique business requirements. Enterprise applications, desktop software, and custom tools.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Enterprise Solutions</li>
+                            <li>• Desktop Applications</li>
+                            <li>• API Development</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2: SaaS Development -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal" style="transition-delay: 0.1s;">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float" style="animation-delay: 0.5s;">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">SaaS Development</h3>
+                        <p class="text-gray-400 text-sm mb-4">Build scalable multi-tenant SaaS applications with subscription billing, user management, and advanced analytics.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Multi-tenant Architecture</li>
+                            <li>• Subscription Billing</li>
+                            <li>• Analytics Dashboard</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3: Mobile App Development -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal" style="transition-delay: 0.2s;">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float" style="animation-delay: 1s;">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Mobile App Development</h3>
+                        <p class="text-gray-400 text-sm mb-4">Native iOS and Android apps, cross-platform solutions using React Native and Flutter.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• iOS Development (Swift)</li>
+                            <li>• Android Development (Kotlin)</li>
+                            <li>• Cross-Platform (React Native/Flutter)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 4: Website Development -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal" style="transition-delay: 0.3s;">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float" style="animation-delay: 1.5s;">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Website Development</h3>
+                        <p class="text-gray-400 text-sm mb-4">Professional, responsive websites built with modern technologies. E-commerce, corporate sites, and web applications.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Responsive Design</li>
+                            <li>• E-Commerce Solutions</li>
+                            <li>• SEO Optimization</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 5: AI Development -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal" style="transition-delay: 0.4s;">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float" style="animation-delay: 2s;">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">AI Development</h3>
+                        <p class="text-gray-400 text-sm mb-4">Machine learning models, natural language processing, computer vision, and predictive analytics solutions.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Machine Learning</li>
+                            <li>• NLP & Chatbots</li>
+                            <li>• Computer Vision</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 6: Business Automation -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal" style="transition-delay: 0.5s;">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float" style="animation-delay: 2.5s;">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Business Automation</h3>
+                        <p class="text-gray-400 text-sm mb-4">Streamline your operations with custom automation solutions. Workflow automation, RPA, and integration services.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Workflow Automation</li>
+                            <li>• RPA Solutions</li>
+                            <li>• System Integration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 7: AI Agents -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal" style="transition-delay: 0.6s;">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float" style="animation-delay: 3s;">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">AI Agents</h3>
+                        <p class="text-gray-400 text-sm mb-4">Intelligent AI agents that can handle customer service, sales, and operational tasks autonomously.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• Customer Service Agents</li>
+                            <li>• Sales Assistants</li>
+                            <li>• Task Automation Agents</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 8: Cloud Solutions -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal" style="transition-delay: 0.7s;">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float" style="animation-delay: 3.5s;">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Cloud Solutions</h3>
+                        <p class="text-gray-400 text-sm mb-4">Cloud-native applications and migration services for AWS, Azure, and Google Cloud Platform.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• AWS / Azure / GCP</li>
+                            <li>• Cloud Migration</li>
+                            <li>• DevOps & CI/CD</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 9: Maintenance & Support -->
+                    <div class="service-card glass-effect rounded-2xl p-6 border border-gray-800 reveal" style="transition-delay: 0.8s;">
+                        <div class="w-16 h-16 rounded-full bg-eagle-gold/10 flex items-center justify-center mb-6 animate-float" style="animation-delay: 4s;">
+                            <svg class="w-8 h-8 text-eagle-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Maintenance & Support</h3>
+                        <p class="text-gray-400 text-sm mb-4">24/7 support, regular updates, security patches, and performance optimization for your applications.</p>
+                        <ul class="text-sm text-gray-500 space-y-1">
+                            <li>• 24/7 Support</li>
+                            <li>• Security Updates</li>
+                            <li>• Performance Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-4 bg-eagle-dark">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6">Ready to Start Your <span class="text-gold-gradient">Project</span>?</h2>
+                <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">Let's discuss how we can help transform your ideas into powerful software solutions.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/923036055466" class="gold-gradient text-eagle-black font-bold px-8 py-4 rounded-full hover:shadow-lg hover:shadow-yellow-500/30 transition-all text-lg">Contact Us: +92 303 6055466</a>
+                    <a href="mailto:dev.hassanalikhan@gmail.com" class="px-8 py-4 border border-eagle-gold text-eagle-gold rounded-full hover:bg-eagle-gold hover:text-eagle-black transition-all text-lg">dev.hassanalikhan@gmail.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-eagle-black border-t border-gray-800 py-8 px-4 text-center text-gray-500 text-sm safe-bottom">
+        <div class="max-w-7xl mx-auto">
+            <p class="mb-4">2024 Eagle Hubs Software Development. All rights reserved.</p>
+            <p>Contact: <a href="tel:+923036055466" class="text-eagle-gold">+92 303 6055466</a> | <a href="mailto:dev.hassanalikhan@gmail.com" class="text-eagle-gold">dev.hassanalikhan@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923036055466" class="fixed bottom-4 right-4 z-50 safe-bottom">
+        <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+    </a>
+
+    <script>
+        // Mobile Menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-eagle-black/95');
+            } else {
+                navbar.classList.remove('bg-eagle-black/95');
+            }
+        });
+    </script>
+</body>
+</html>
