@@ -367,8 +367,6 @@
         body {
             background-color: #0a0a0a;
             color: #ffffff;
-            overflow-x: hidden;
-            overflow-y: auto;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -376,6 +374,7 @@
         html {
             scroll-behavior: smooth;
             -webkit-text-size-adjust: 100%;
+            overflow-x: hidden;
         }
 
         .glass-effect {
@@ -478,6 +477,7 @@
         }
 
         /* Prevent horizontal scroll */
+        html,
         body {
             max-width: 100vw;
         }
@@ -510,8 +510,7 @@
     </style>
 </head>
 
-<body class="font-body antialiased overflow-x-hidden">
-    <!-- Skip to main content link for accessibility -->
+<body class="font-body antialiased">
     <a href="#main-content"
         class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-eagle-gold focus:text-eagle-black focus:rounded-lg">
         Skip to main content
@@ -1976,9 +1975,9 @@
             });
         });
 
-        // Prevent horizontal scroll
+        // Prevent pinch zoom only
         document.addEventListener('touchmove', function (e) {
-            if (e.scale !== 1) { e.preventDefault(); }
+            if (e.touches && e.touches.length > 1) { e.preventDefault(); }
         }, { passive: false });
 
         // Handle orientation change
