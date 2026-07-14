@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
 <title>Eagle Hubs - Real Estate, Cars & Investments in Pakistan</title>
-<meta name="description" content="Eagle Hubs - Pakistan's trusted marketplace for real estate, cars & investments. Browse 5000+ properties, 1200+ cars & 50+ projects.">
+<meta name="description" content="Eagle Hubs - Pakistan's trusted marketplace for real estate, cars & investments. Browse 500+ properties, 200+ cars & 50+ projects.">
 <link rel="icon" type="image/png" href="assets/1.png">
 <meta name="keywords" content="real estate Pakistan, luxury cars Pakistan, property investment, Eagle Hubs, Bahria Town, DHA, Blue World City, Capital Smart City">
 <meta name="author" content="Eagle Hubs">
@@ -15,9 +15,21 @@
 <meta property="og:url" content="https://eaglehubspk.com/">
 <meta property="og:title" content="Eagle Hubs - Premium Real Estate, Cars & Investments">
 <meta property="og:description" content="Pakistan's trusted marketplace for luxury real estate, premium automobiles & secure investments.">
+<meta property="og:image" content="https://www.eaglehubspk.com/assets/1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_PK">
 <meta name="geo.region" content="PK">
 <meta name="geo.placename" content="Islamabad">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@eaglehubspk">
+<meta name="twitter:title" content="Eagle Hubs — Premium Real Estate, Cars & Investments in Pakistan">
+<meta name="twitter:description" content="Pakistan's trusted marketplace for real estate, luxury automobiles & investment opportunities. Browse verified listings in Bahria Town, DHA, Islamabad & more.">
+<meta name="twitter:image" content="https://www.eaglehubspk.com/assets/1.png">
+
+<link rel="dns-prefetch" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&fm=webp&q=75">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +37,27 @@
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Eagle Hubs","url":"https://eaglehubspk.com","telephone":"+92-336-9313821","email":"eaglehubs786@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Bahria Town Phase 7","addressLocality":"Islamabad","addressCountry":"PK"}}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Featured Properties — Eagle Hubs",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Residence",
+        "name": "Luxury Villa — Bahria Town Phase 8",
+        "description": "5-bedroom luxury villa in Bahria Town Phase 8, Islamabad",
+        "offers": { "@type": "Offer", "price": "45000000", "priceCurrency": "PKR" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Islamabad", "addressCountry": "PK" }
+      }
+    }
+  ]
+}
 </script>
 
 <style>
@@ -1313,6 +1346,10 @@ footer {
 
 /* safe areas */
 .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 20px); }
+
+/* Added Utility Classes for Clean Code */
+.text-center { text-align: center; }
+.justify-center { justify-content: center; }
 </style>
 </head>
 
@@ -1369,10 +1406,17 @@ footer {
 <section id="hero" aria-label="Hero — Discover Premium Living">
   <!-- Background slides with parallax -->
   <div class="hero-slides" aria-hidden="true">
-    <div class="hero-slide active" id="slide-0" style="background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920') center/cover no-repeat;"></div>
-    <div class="hero-slide" id="slide-1" style="background:url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920') center/cover no-repeat;"></div>
-    <div class="hero-slide" id="slide-2" style="background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920') center/cover no-repeat;"></div>
+    <div class="hero-slide active" id="slide-0" style="background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&fm=webp&q=75') center/cover no-repeat;"></div>
+    <div class="hero-slide" id="slide-1"></div>
+    <div class="hero-slide" id="slide-2"></div>
   </div>
+
+  <button id="slidePause" aria-label="Pause slideshow" onclick="toggleSlide()" 
+    style="position:absolute;bottom:80px;right:24px;z-index:3;
+    background:rgba(0,0,0,0.4);border:1px solid rgba(212,175,55,0.4);
+    color:#d4af37;padding:6px 12px;border-radius:4px;font-size:11px;cursor:pointer;">
+    ⏸ Pause
+  </button>
 
   <div class="hero-content">
     <p class="hero-eyebrow">Pakistan's Premier Marketplace</p>
@@ -1405,7 +1449,7 @@ footer {
           <select class="search-select"><option value="">Bedrooms</option><option>Studio</option><option>1 Bed</option><option>2 Beds</option><option>3 Beds</option><option>4 Beds</option><option>5 Beds</option><option>6+ Beds</option></select>
           <select class="search-select"><option value="">Price Range</option><option>Under 30 Lakh</option><option>30–50 Lakh</option><option>50L–1 Crore</option><option>1–2 Crore</option><option>2–5 Crore</option><option>5–10 Crore</option><option>10 Crore+</option></select>
         </div>
-        <button class="shimmer-btn">Search Properties</button>
+        <button class="shimmer-btn" onclick="searchProperties()">Search Properties</button>
       </div>
 
       <!-- Cars form -->
@@ -1418,7 +1462,7 @@ footer {
           <select class="search-select"><option value="">Condition</option><option>New / Unregistered</option><option>Used – Excellent</option><option>Used – Good</option><option>Imported</option><option>Locally Assembled</option></select>
           <select class="search-select"><option value="">Price Range</option><option>Under 10 Lakh</option><option>10–20 Lakh</option><option>20–40 Lakh</option><option>40–70 Lakh</option><option>70L–1 Crore</option><option>1–2 Crore</option><option>2 Crore+</option></select>
         </div>
-        <button class="shimmer-btn">Find Cars</button>
+        <button class="shimmer-btn" onclick="searchCars()">Find Cars</button>
       </div>
 
       <!-- Investments form -->
@@ -1431,18 +1475,18 @@ footer {
           <select class="search-select"><option value="">Budget</option><option>Under 5 Lakh</option><option>5–10 Lakh</option><option>10–25 Lakh</option><option>25–50 Lakh</option><option>50L–1 Crore</option><option>1–3 Crore</option></select>
           <select class="search-select"><option value="">Status</option><option>New Booking</option><option>Resale / Transfer</option><option>Possession Available</option><option>On Installments</option><option>LDA / RDA Approved</option><option>NOC Approved</option></select>
         </div>
-        <button class="shimmer-btn">View Projects</button>
+        <button class="shimmer-btn" onclick="searchInvestments()">View Projects</button>
       </div>
 
       <!-- Stats counter -->
       <div class="hero-stats" role="region" aria-label="Platform statistics">
         <div class="stat-item">
-          <span class="stat-number" data-target="5000" data-suffix="+">5000+</span>
+          <span class="stat-number" data-target="500" data-suffix="+">500+</span>
           <span class="stat-label">Properties</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number" data-target="1200" data-suffix="+">1200+</span>
-          <span class="stat-label">Automobiles</span>
+          <span class="stat-number" data-target="200" data-suffix="+">200+</span>
+          <span class="stat-label">Cars Listed</span>
         </div>
         <div class="stat-item">
           <span class="stat-number" data-target="50" data-suffix="+">50+</span>
@@ -1472,7 +1516,7 @@ footer {
   <div class="about-grid">
     <div class="reveal-left delay-2">
       <div class="about-img-wrap">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900" alt="Eagle Hubs — Modern skyline representing premium real estate in Pakistan" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=900&fm=webp&q=75" alt="Eagle Hubs — Modern skyline representing premium real estate in Pakistan" loading="lazy">
         <div class="about-img-frame"></div>
         <div class="about-img-badge">
           <span class="num">8+</span>
@@ -1532,7 +1576,7 @@ footer {
       <h2 class="section-title">Featured <span class="gold">Properties</span></h2>
       <p class="section-desc">Premium residential and commercial spaces</p>
     </div>
-    <a href="#" class="view-all hide-mobile">
+    <a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings" class="view-all hide-mobile">
       View All
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </a>
@@ -1542,7 +1586,7 @@ footer {
     <!-- Card 1 -->
     <article class="prop-card reveal delay-1" role="article" aria-label="Luxury Villa – Bahria Town">
       <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" alt="Luxury 5-bedroom villa in Bahria Town Phase 8, Islamabad — Eagle Hubs" loading="lazy" width="800" height="600">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&fm=webp&q=75" alt="Luxury 5-bedroom villa in Bahria Town Phase 8, Islamabad — Eagle Hubs" loading="lazy" width="800" height="600">
         <span class="prop-badge-tl badge-sale">For Sale</span>
         <span class="prop-badge-tr">Bahria Town</span>
         <div class="prop-overlay">
@@ -1571,7 +1615,7 @@ footer {
     <!-- Card 2 -->
     <article class="prop-card reveal delay-2" role="article" aria-label="Modern Apartment – DHA Lahore">
       <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Modern 3-bedroom apartment for rent in DHA Phase 6, Lahore — Eagle Hubs" loading="lazy" width="800" height="600">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&fm=webp&q=75" alt="Modern 3-bedroom apartment for rent in DHA Phase 6, Lahore — Eagle Hubs" loading="lazy" width="800" height="600">
         <span class="prop-badge-tl badge-rent">For Rent</span>
         <span class="prop-badge-tr">DHA</span>
         <div class="prop-overlay">
@@ -1600,7 +1644,7 @@ footer {
     <!-- Card 3 -->
     <article class="prop-card reveal delay-3" role="article" aria-label="Commercial Plaza – Gulberg Lahore">
       <div class="prop-img-wrap">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800" alt="Commercial plaza with 8 shops in Gulberg III, Lahore — Eagle Hubs" loading="lazy" width="800" height="600">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&fm=webp&q=75" alt="Commercial plaza with 8 shops in Gulberg III, Lahore — Eagle Hubs" loading="lazy" width="800" height="600">
         <span class="prop-badge-tl badge-sale">For Sale</span>
         <span class="prop-badge-tr">Gulberg</span>
         <div class="prop-overlay">
@@ -1627,8 +1671,8 @@ footer {
     </article>
   </div>
 
-  <div style="text-align:center;margin-top:24px;">
-    <a href="#" class="view-all" style="display:inline-flex;">
+  <div class="text-center" style="margin-top:24px;">
+    <a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings" class="view-all" style="display:inline-flex;">
       View All Properties
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width:16px;height:16px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </a>
@@ -1662,7 +1706,7 @@ footer {
       <!-- Car 1 -->
       <article class="car-card" aria-label="2023 BMW X5 xDrive40i">
         <div class="car-img-wrap">
-          <img src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=700" alt="2023 BMW X5 xDrive40i — PKR 2.8 Cr, Islamabad" loading="lazy" width="700" height="480">
+          <img src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=700&fm=webp&q=75" alt="2023 BMW X5 xDrive40i — PKR 2.8 Cr, Islamabad" loading="lazy" width="700" height="480">
           <span class="car-year-badge">2023</span>
         </div>
         <div class="car-body">
@@ -1678,7 +1722,7 @@ footer {
       <!-- Car 2 -->
       <article class="car-card" aria-label="2022 Mercedes GLE 450">
         <div class="car-img-wrap">
-          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=700" alt="2022 Mercedes-Benz GLE 450 — PKR 3.2 Cr, Lahore" loading="lazy" width="700" height="480">
+          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=700&fm=webp&q=75" alt="2022 Mercedes-Benz GLE 450 — PKR 3.2 Cr, Lahore" loading="lazy" width="700" height="480">
           <span class="car-year-badge">2022</span>
         </div>
         <div class="car-body">
@@ -1691,26 +1735,10 @@ footer {
         </div>
       </article>
 
-      <!-- Car 3
-      <article class="car-card" aria-label="2024 Toyota Land Cruiser">
-        <div class="car-img-wrap">
-          <img src="https://images.unsplash.com/photo-1555215695-3004980adade?w=700" alt="2024 Toyota Land Cruiser — PKR 8.5 Cr, Karachi" loading="lazy" width="700" height="480">
-          <span class="car-year-badge">2024</span>
-        </div>
-        <div class="car-body">
-          <h3 class="car-name">Toyota Land Cruiser</h3>
-          <p class="car-meta">Karachi &nbsp;·&nbsp; 5,000 km</p>
-          <div class="car-footer">
-            <span class="car-price">PKR 8.5 Cr</span>
-            <button class="car-details-btn" onclick="openModal('Toyota Land Cruiser 2024')">Details →</button>
-          </div>
-        </div>
-      </article> -->
-
       <!-- Car 4 -->
       <article class="car-card" aria-label="2023 Audi Q7 Premium">
         <div class="car-img-wrap">
-          <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=700" alt="2023 Audi Q7 Premium — PKR 2.4 Cr, Islamabad" loading="lazy" width="700" height="480">
+          <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=700&fm=webp&q=75" alt="2023 Audi Q7 Premium — PKR 2.4 Cr, Islamabad" loading="lazy" width="700" height="480">
           <span class="car-year-badge">2023</span>
         </div>
         <div class="car-body">
@@ -1726,7 +1754,7 @@ footer {
       <!-- Car 5 — extra padding card -->
       <article class="car-card" aria-label="2023 Porsche Cayenne">
         <div class="car-img-wrap">
-          <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700" alt="2023 Porsche Cayenne — Islamabad" loading="lazy" width="700" height="480">
+          <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700&fm=webp&q=75" alt="2023 Porsche Cayenne — Islamabad" loading="lazy" width="700" height="480">
           <span class="car-year-badge">2023</span>
         </div>
         <div class="car-body">
@@ -1748,8 +1776,8 @@ footer {
 ══════════════════════════════ -->
 <div id="investments" style="background:var(--obsidian-2);">
 <div class="section">
-  <div class="reveal" style="text-align:center;">
-    <div class="section-label" style="justify-content:center;">Investment Opportunities</div>
+  <div class="reveal text-center">
+    <div class="section-label justify-center">Investment Opportunities</div>
     <h2 class="section-title">Secure Your <span class="gold">Future</span></h2>
     <p class="section-desc" style="max-width:520px;margin:0 auto;">Pakistan's leading real estate development projects with real-time progress tracking and ROI intelligence.</p>
   </div>
@@ -1758,7 +1786,7 @@ footer {
     <!-- Invest 1 -->
     <div class="invest-card reveal delay-2">
       <div class="invest-img-wrap">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900" alt="Blue World City housing development on Chakri Road, Islamabad" loading="lazy" width="900" height="600">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&fm=webp&q=75" alt="Blue World City housing development on Chakri Road, Islamabad" loading="lazy" width="900" height="600">
         <div class="invest-img-info">
           <div>
             <h3 class="invest-img-title">Blue World City</h3>
@@ -1778,6 +1806,9 @@ footer {
             <p class="invest-kpi-val green">35%</p>
           </div>
         </div>
+        <p style="font-size:11px;color:rgba(240,236,228,0.25);margin-bottom:8px;">
+          Last updated: April 2026
+        </p>
         <div class="progress-label-row">
           <span class="progress-label">Development Progress</span>
           <span class="progress-pct">65%</span>
@@ -1791,13 +1822,17 @@ footer {
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </button>
         </div>
+        <p style="font-size:11px;color:rgba(240,236,228,0.3);margin-top:12px;line-height:1.6;">
+          * Projected figures based on current market trends. Returns are not guaranteed. 
+          Investment carries risk. Consult a financial advisor before investing.
+        </p>
       </div>
     </div>
 
     <!-- Invest 2 -->
     <div class="invest-card reveal delay-3">
       <div class="invest-img-wrap">
-        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900" alt="Capital Smart City on Motorway M-2, Islamabad" loading="lazy" width="900" height="600">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&fm=webp&q=75" alt="Capital Smart City on Motorway M-2, Islamabad" loading="lazy" width="900" height="600">
         <div class="invest-img-info">
           <div>
             <h3 class="invest-img-title">Capital Smart City</h3>
@@ -1817,6 +1852,9 @@ footer {
             <p class="invest-kpi-val green">42%</p>
           </div>
         </div>
+        <p style="font-size:11px;color:rgba(240,236,228,0.25);margin-bottom:8px;">
+          Last updated: April 2026
+        </p>
         <div class="progress-label-row">
           <span class="progress-label">Development Progress</span>
           <span class="progress-pct">45%</span>
@@ -1830,6 +1868,10 @@ footer {
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </button>
         </div>
+        <p style="font-size:11px;color:rgba(240,236,228,0.3);margin-top:12px;line-height:1.6;">
+          * Projected figures based on current market trends. Returns are not guaranteed. 
+          Investment carries risk. Consult a financial advisor before investing.
+        </p>
       </div>
     </div>
   </div>
@@ -1841,8 +1883,8 @@ footer {
 ══════════════════════════════ -->
 <div id="why" style="background:var(--obsidian-3);">
 <div class="section">
-  <div class="reveal" style="text-align:center;margin-bottom:0;">
-    <div class="section-label" style="justify-content:center;">Our Promise</div>
+  <div class="reveal text-center" style="margin-bottom:0;">
+    <div class="section-label justify-center">Our Promise</div>
     <h2 class="section-title">Why Choose <span class="gold">Eagle Hubs</span></h2>
     <p class="section-desc">Pakistan's most trusted property and investment platform</p>
   </div>
@@ -1885,6 +1927,20 @@ footer {
 
 </main>
 
+<!-- Placeholder sections for Privacy Policy, Terms of Service, Cookie Policy -->
+<section id="privacy-policy" style="display:none">
+  <h2>Privacy Policy</h2>
+  <p>Placeholder content for Privacy Policy. Eagle Hubs is committed to protecting your privacy.</p>
+</section>
+<section id="terms-of-service" style="display:none">
+  <h2>Terms of Service</h2>
+  <p>Placeholder content for Terms of Service. By using our website, you agree to these terms.</p>
+</section>  
+<section id="cookie-policy" style="display:none">
+  <h2>Cookie Policy</h2>
+  <p>Placeholder content for Cookie Policy. We use cookies to improve your browsing experience.</p>
+</section>
+
 <!-- ══════════════════════════════
      FOOTER
 ══════════════════════════════ -->
@@ -1917,11 +1973,11 @@ footer {
       <div>
         <h4 class="footer-col-title">Quick Links</h4>
         <ul class="footer-links">
-          <li><a href="#">Properties for Sale</a></li>
-          <li><a href="#">Properties for Rent</a></li>
-          <li><a href="#">New Projects</a></li>
-          <li><a href="#">Car Listings</a></li>
-          <li><a href="#">Investment Plans</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Properties for Sale</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Properties for Rent</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">New Projects</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Car Listings</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Investment Plans</a></li>
           <li><a href="services/software-development.html">Software Development</a></li>
         </ul>
       </div>
@@ -1930,11 +1986,11 @@ footer {
       <div>
         <h4 class="footer-col-title">Services</h4>
         <ul class="footer-links">
-          <li><a href="#">Property Valuation</a></li>
-          <li><a href="#">Legal Assistance</a></li>
-          <li><a href="#">Home Loans</a></li>
-          <li><a href="#">Car Financing</a></li>
-          <li><a href="#">Property Management</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Property Valuation</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Legal Assistance</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Home Loans</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Car Financing</a></li>
+          <li><a href="https://wa.me/923369313821?text=I%20want%20to%20see%20all%20listings">Property Management</a></li>
           <li><a href="https://careers.eaglehubspk.com/careers" target="_blank" rel="noopener noreferrer">Careers</a></li>
         </ul>
       </div>
@@ -1964,11 +2020,11 @@ footer {
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Eagle Hubs. All rights reserved.</p>
+      <p class="footer-copy">© 2026 Eagle Hubs. All rights reserved.</p>
       <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Policy</a>
+        <a href="#privacy-policy">Privacy Policy</a>
+        <a href="#terms-of-service">Terms of Service</a>
+        <a href="#cookie-policy">Cookie Policy</a>
       </div>
     </div>
   </div>
@@ -1985,22 +2041,24 @@ footer {
     <h3 class="modal-title" id="modalTitle">Inquiry</h3>
     <p class="modal-subtitle" id="modalItem">Property</p>
     <form class="modal-form" onsubmit="submitInquiry(event)">
+      <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
       <div>
         <label class="form-label">Full Name</label>
-        <input type="text" class="form-input" required placeholder="Your full name">
+        <input type="text" name="name" class="form-input" required placeholder="Your full name">
       </div>
       <div>
         <label class="form-label">Phone Number</label>
-        <input type="tel" class="form-input" required placeholder="+92 3XX XXXXXXX">
+        <input type="tel" name="phone" class="form-input" required placeholder="+92 3XX XXXXXXX">
       </div>
       <div>
         <label class="form-label">Email</label>
-        <input type="email" class="form-input" required placeholder="your@email.com">
+        <input type="email" name="email" class="form-input" required placeholder="your@email.com">
       </div>
       <div>
         <label class="form-label">Message</label>
-        <textarea class="form-textarea" placeholder="Tell us about your requirements…"></textarea>
+        <textarea name="message" class="form-textarea" placeholder="Tell us about your requirements…"></textarea>
       </div>
+      <div id="form-error" style="display:none; color:#ff5f57; font-size:12px; margin-top:-4px; margin-bottom:8px; font-family:var(--body);"></div>
       <button type="submit" class="shimmer-btn" style="border-radius:6px;">Send Inquiry via WhatsApp</button>
     </form>
   </div>
@@ -2022,7 +2080,86 @@ function nextSlide() {
   slideIdx = (slideIdx + 1) % slides.length;
   slides[slideIdx].classList.add('active');
 }
-setInterval(nextSlide, 6000);
+
+let slidePaused = false;
+let slideInterval = setInterval(nextSlide, 6000);
+window.toggleSlide = function() {
+  slidePaused = !slidePaused;
+  if (slidePaused) {
+    clearInterval(slideInterval);
+    document.getElementById('slidePause').textContent = '▶ Play';
+  } else {
+    slideInterval = setInterval(nextSlide, 6000);
+    document.getElementById('slidePause').textContent = '⏸ Pause';
+  }
+};
+
+/* Load slides 1 and 2 lazily after 2 seconds */
+setTimeout(() => {
+  document.getElementById('slide-1').style.background = "url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&fm=webp&q=75') center/cover no-repeat";
+  document.getElementById('slide-2').style.background = "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&fm=webp&q=75') center/cover no-repeat";
+}, 2000);
+
+/* ─── SEARCH FUNCTIONALITY ─── */
+window.searchProperties = function() {
+  const selects = document.querySelectorAll('#form-property .search-select');
+  const purpose = selects[0].value, type = selects[1].value, 
+        city = selects[2].value, size = selects[3].value,
+        beds = selects[4].value, price = selects[5].value;
+  const parts = [purpose,type,city,size,beds,price].filter(Boolean);
+  if (!parts.length) { alert('Please select at least one filter to search.'); return; }
+  const msg = encodeURIComponent(
+    '*Property Search — Eagle Hubs*\n\n' +
+    (purpose ? '*Purpose:* ' + purpose + '\n' : '') +
+    (type ? '*Type:* ' + type + '\n' : '') +
+    (city ? '*City:* ' + city + '\n' : '') +
+    (size ? '*Size:* ' + size + '\n' : '') +
+    (beds ? '*Bedrooms:* ' + beds + '\n' : '') +
+    (price ? '*Budget:* ' + price + '\n' : '') +
+    '\nPlease share matching listings.'
+  );
+  window.open('https://wa.me/923369313821?text=' + msg, '_blank');
+};
+
+window.searchCars = function() {
+  const selects = document.querySelectorAll('#form-cars .search-select');
+  const brand = selects[0].value, type = selects[1].value, 
+        year = selects[2].value, city = selects[3].value,
+        condition = selects[4].value, price = selects[5].value;
+  const parts = [brand,type,year,city,condition,price].filter(Boolean);
+  if (!parts.length) { alert('Please select at least one filter to search.'); return; }
+  const msg = encodeURIComponent(
+    '*Car Search — Eagle Hubs*\n\n' +
+    (brand ? '*Brand:* ' + brand + '\n' : '') +
+    (type ? '*Type:* ' + type + '\n' : '') +
+    (year ? '*Year:* ' + year + '\n' : '') +
+    (city ? '*City:* ' + city + '\n' : '') +
+    (condition ? '*Condition:* ' + condition + '\n' : '') +
+    (price ? '*Budget:* ' + price + '\n' : '') +
+    '\nPlease share matching listings.'
+  );
+  window.open('https://wa.me/923369313821?text=' + msg, '_blank');
+};
+
+window.searchInvestments = function() {
+  const selects = document.querySelectorAll('#form-investments .search-select');
+  const project = selects[0].value, type = selects[1].value, 
+        size = selects[2].value, plan = selects[3].value,
+        budget = selects[4].value, status = selects[5].value;
+  const parts = [project,type,size,plan,budget,status].filter(Boolean);
+  if (!parts.length) { alert('Please select at least one filter to search.'); return; }
+  const msg = encodeURIComponent(
+    '*Investment Search — Eagle Hubs*\n\n' +
+    (project ? '*Project:* ' + project + '\n' : '') +
+    (type ? '*Plot Type:* ' + type + '\n' : '') +
+    (size ? '*Plot Size:* ' + size + '\n' : '') +
+    (plan ? '*Installment Plan:* ' + plan + '\n' : '') +
+    (budget ? '*Budget:* ' + budget + '\n' : '') +
+    (status ? '*Status:* ' + status + '\n' : '') +
+    '\nPlease share matching listings.'
+  );
+  window.open('https://wa.me/923369313821?text=' + msg, '_blank');
+};
 
 /* ─── PARALLAX (hardware-accelerated) ─── */
 let ticking = false;
@@ -2146,14 +2283,34 @@ window.openModal = function(name) {
   const modal = document.getElementById('inquiryModal');
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  const focusable = modal.querySelectorAll('input:not([name="website"]),textarea,button,select');
+  const first = focusable[0], last = focusable[focusable.length - 1];
+  setTimeout(() => first && first.focus(), 100);
+  
+  if (!modal.dataset.trapAdded) {
+    modal.addEventListener('keydown', function trapFocus(e) {
+      if (e.key !== 'Tab') return;
+      const currentFocusable = modal.querySelectorAll('input:not([name="website"]),textarea,button,select');
+      const f = currentFocusable[0], l = currentFocusable[currentFocusable.length - 1];
+      if (e.shiftKey ? document.activeElement === f : document.activeElement === l) {
+        e.preventDefault();
+        (e.shiftKey ? l : f).focus();
+      }
+    });
+    modal.dataset.trapAdded = "true";
+  }
 };
+
 window.closeModal = function() {
   document.getElementById('inquiryModal').classList.remove('open');
   document.body.style.overflow = '';
 };
+
 document.getElementById('inquiryModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
+
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
@@ -2161,17 +2318,55 @@ document.addEventListener('keydown', e => {
 window.submitInquiry = function(e) {
   e.preventDefault();
   const form = e.target;
-  const name    = form.querySelector('input[type="text"]').value;
-  const phone   = form.querySelector('input[type="tel"]').value;
-  const email   = form.querySelector('input[type="email"]').value;
-  const message = form.querySelector('textarea').value;
-  const item    = document.getElementById('modalItem').textContent;
+  
+  // 1. Honeypot check
+  if (form.querySelector('[name="website"]').value) return; // honeypot triggered
+
+  const name = form.querySelector('[name="name"]').value.trim();
+  const phone = form.querySelector('[name="phone"]').value.trim();
+  const email = form.querySelector('[name="email"]').value.trim();
+  const message = form.querySelector('[name="message"]').value.trim();
+  const item = document.getElementById('modalItem').textContent;
+  const errorDiv = document.getElementById('form-error');
+
+  // 3. Basic client-side validation
+  let errors = [];
+  if (name.length < 3) {
+    errors.push('Name must be at least 3 characters long.');
+  }
+  const cleanPhone = phone.replace(/[^0-9+]/g, '');
+  if (cleanPhone.length < 10) {
+    errors.push('Please enter a valid phone number (minimum 10 digits).');
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    errors.push('Please enter a valid email address.');
+  }
+
+  if (errors.length > 0) {
+    errorDiv.textContent = errors.join(' ');
+    errorDiv.style.display = 'block';
+    return;
+  }
+  errorDiv.style.display = 'none';
+
+  // 2. 10-second cooldown after submission
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  const originalText = btn.textContent;
+  btn.textContent = 'Sent! ✓';
 
   const msg = encodeURIComponent(
     `*New Inquiry — Eagle Hubs*\n\n` +
     `*Item:* ${item}\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Message:* ${message || 'N/A'}`
   );
   window.open(`https://wa.me/923369313821?text=${msg}`, '_blank');
+  
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }, 10000);
+
   closeModal();
   form.reset();
 };
