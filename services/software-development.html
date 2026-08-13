@@ -28,16 +28,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
 <script>try{var t=localStorage.getItem('eh-theme');if(t==='light')document.documentElement.dataset.theme='light';}catch(e){}</script>
+<!-- Critical, above-the-fold styles: render-blocking by design -->
 <link rel="stylesheet" href="sd/base.css">
 <link rel="stylesheet" href="sd/hero.css">
+<!-- Below-the-fold styles: preloaded but non-render-blocking, swapped in once fetched -->
+<link rel="preload" href="sd/services.css" as="style">
+<link rel="preload" href="sd/work.css" as="style">
+<link rel="preload" href="sd/process.css" as="style">
+<link rel="preload" href="sd/reviews.css" as="style">
+<link rel="preload" href="sd/contact.css" as="style">
+<link rel="stylesheet" href="sd/services.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="sd/work.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="sd/process.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="sd/reviews.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="sd/contact.css" media="print" onload="this.media='all'">
+<noscript>
 <link rel="stylesheet" href="sd/services.css">
 <link rel="stylesheet" href="sd/work.css">
 <link rel="stylesheet" href="sd/process.css">
 <link rel="stylesheet" href="sd/reviews.css">
 <link rel="stylesheet" href="sd/contact.css">
+</noscript>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->

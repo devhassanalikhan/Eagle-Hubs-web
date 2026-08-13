@@ -1,7 +1,9 @@
 /* Eagle Hubs Software Division v2 — hero3d.js
    Lazy Three.js agent-pipeline visualization.
-   Loads Three.js from CDN only when the hero is visible, WebGL is
-   available, and the user hasn't asked for reduced motion.
+   Loads Three.js from CDN only after the page has finished loading and
+   the main thread is idle, WebGL is available, and the user hasn't
+   asked for reduced motion — so it never competes with first paint /
+   LCP, even though the hero is visible immediately on load.
    Falls back silently to the static SVG diagram otherwise. */
 (function(){
   'use strict';
@@ -21,16 +23,33 @@
   if(!webglOK()) return;
 
   let booted = false;
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting && !booted){
-        booted = true;
-        io.disconnect();
-        loadThree();
-      }
-    });
-  }, { rootMargin:'80px' });
-  io.observe(mount);
+  function boot(){
+    if(booted) return;
+    booted = true;
+    loadThree();
+  }
+
+  /* Wait for load + idle before even checking visibility, so the
+     Three.js download/parse/execute never lands inside the LCP window. */
+  function afterIdle(cb){
+    if('requestIdleCallback' in window) requestIdleCallback(cb, { timeout: 2000 });
+    else setTimeout(cb, 1200);
+  }
+
+  function armObserver(){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting) { io.disconnect(); boot(); }
+      });
+    }, { rootMargin:'80px' });
+    io.observe(mount);
+  }
+
+  if(document.readyState === 'complete'){
+    afterIdle(armObserver);
+  } else {
+    window.addEventListener('load', () => afterIdle(armObserver));
+  }
 
   function loadThree(){
     const s = document.createElement('script');
