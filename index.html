@@ -44,11 +44,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="dns-prefetch" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&fm=webp&q=75">
+<!-- Responsive hero LCP image: serve a viewport-appropriate size instead of always shipping the 1920px desktop version to mobile -->
+<link rel="preload" as="image" fetchpriority="high" media="(max-width: 767px)" href="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&fm=webp&q=75">
+<link rel="preload" as="image" fetchpriority="high" media="(min-width: 768px)" href="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&fm=webp&q=75">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@300;400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Eagle Hubs","url":"https://eaglehubspk.com","telephone":"+92-336-9313821","email":"eaglehubs786@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Bahria Town Phase 7","addressLocality":"Islamabad","addressCountry":"PK"}}
@@ -97,7 +101,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-inner">
     <a href="/" class="nav-brand">
       <div class="nav-logo">
-        <img src="assets/1.png" alt="Eagle Hubs" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:var(--display);font-size:16px;font-weight:700;color:var(--gold)\'>E</span>'">
+        <img src="assets/1.png" alt="" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-family:var(--display);font-size:16px;font-weight:700;color:var(--gold)\'>E</span>'">
       </div>
       <span class="nav-wordmark">Eagle <span>Hubs</span></span>
     </a>
@@ -135,7 +139,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section id="hero" aria-label="Hero — Discover Premium Living">
   <!-- Background slides with parallax -->
   <div class="hero-slides" aria-hidden="true">
-    <div class="hero-slide active" id="slide-0" style="background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&fm=webp&q=75') center/cover no-repeat;"></div>
+    <div class="hero-slide active" id="slide-0"></div>
     <div class="hero-slide" id="slide-1"></div>
     <div class="hero-slide" id="slide-2"></div>
   </div>
@@ -162,47 +166,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Search card -->
     <div class="search-card">
-      <div class="search-tabs">
-        <button class="tab-btn active" onclick="switchTab('property', this)">Property</button>
-        <button class="tab-btn" onclick="switchTab('cars', this)">Automobiles</button>
-        <button class="tab-btn" onclick="switchTab('investments', this)">Investments</button>
+      <div class="search-tabs" role="tablist" aria-label="Search category">
+        <button class="tab-btn active" id="tab-property" role="tab" aria-selected="true" aria-controls="form-property" onclick="switchTab('property', this)">Property</button>
+        <button class="tab-btn" id="tab-cars" role="tab" aria-selected="false" aria-controls="form-cars" onclick="switchTab('cars', this)">Automobiles</button>
+        <button class="tab-btn" id="tab-investments" role="tab" aria-selected="false" aria-controls="form-investments" onclick="switchTab('investments', this)">Investments</button>
       </div>
 
       <!-- Property form -->
-      <div id="form-property" class="search-form active">
+      <div id="form-property" class="search-form active" role="tabpanel" aria-labelledby="tab-property">
         <div class="search-grid">
-          <select class="search-select"><option value="">Purpose</option><option>Buy</option><option>Sell</option><option>Rent</option><option>Rent Out</option></select>
-          <select class="search-select"><option value="">Property Type</option><option>House</option><option>Flat / Apartment</option><option>Farm House</option><option>Pent House</option><option>Residential Plot</option><option>Commercial Plot</option><option>Office</option><option>Shop</option><option>Warehouse</option></select>
-          <select class="search-select"><option value="">City</option><option>Islamabad</option><option>Rawalpindi</option><option>Lahore</option><option>Karachi</option><option>Peshawar</option><option>Quetta</option><option>Multan</option><option>Faisalabad</option><option>Murree</option></select>
-          <select class="search-select"><option value="">Area Size</option><option>3 Marla</option><option>5 Marla</option><option>7 Marla</option><option>10 Marla</option><option>1 Kanal</option><option>2 Kanal</option><option>4 Kanal</option></select>
-          <select class="search-select"><option value="">Bedrooms</option><option>Studio</option><option>1 Bed</option><option>2 Beds</option><option>3 Beds</option><option>4 Beds</option><option>5 Beds</option><option>6+ Beds</option></select>
-          <select class="search-select"><option value="">Price Range</option><option>Under 30 Lakh</option><option>30–50 Lakh</option><option>50L–1 Crore</option><option>1–2 Crore</option><option>2–5 Crore</option><option>5–10 Crore</option><option>10 Crore+</option></select>
+          <select class="search-select" aria-label="Purpose"><option value="">Purpose</option><option>Buy</option><option>Sell</option><option>Rent</option><option>Rent Out</option></select>
+          <select class="search-select" aria-label="Property Type"><option value="">Property Type</option><option>House</option><option>Flat / Apartment</option><option>Farm House</option><option>Pent House</option><option>Residential Plot</option><option>Commercial Plot</option><option>Office</option><option>Shop</option><option>Warehouse</option></select>
+          <select class="search-select" aria-label="City"><option value="">City</option><option>Islamabad</option><option>Rawalpindi</option><option>Lahore</option><option>Karachi</option><option>Peshawar</option><option>Quetta</option><option>Multan</option><option>Faisalabad</option><option>Murree</option></select>
+          <select class="search-select" aria-label="Area Size"><option value="">Area Size</option><option>3 Marla</option><option>5 Marla</option><option>7 Marla</option><option>10 Marla</option><option>1 Kanal</option><option>2 Kanal</option><option>4 Kanal</option></select>
+          <select class="search-select" aria-label="Bedrooms"><option value="">Bedrooms</option><option>Studio</option><option>1 Bed</option><option>2 Beds</option><option>3 Beds</option><option>4 Beds</option><option>5 Beds</option><option>6+ Beds</option></select>
+          <select class="search-select" aria-label="Price Range"><option value="">Price Range</option><option>Under 30 Lakh</option><option>30–50 Lakh</option><option>50L–1 Crore</option><option>1–2 Crore</option><option>2–5 Crore</option><option>5–10 Crore</option><option>10 Crore+</option></select>
         </div>
         <button class="shimmer-btn" onclick="searchProperties()">Search Properties</button>
       </div>
 
       <!-- Cars form -->
-      <div id="form-cars" class="search-form">
+      <div id="form-cars" class="search-form" role="tabpanel" aria-labelledby="tab-cars">
         <div class="search-grid">
-          <select class="search-select"><option value="">Make / Brand</option><option>Toyota</option><option>Honda</option><option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Porsche</option><option>Land Rover</option><option>Lexus</option><option>Nissan</option><option>Kia</option><option>Hyundai</option><option>MG</option></select>
-          <select class="search-select"><option value="">Vehicle Type</option><option>Sedan</option><option>Hatchback</option><option>SUV / Jeep</option><option>Crossover</option><option>Coupe</option><option>Electric Vehicle</option><option>Hybrid</option></select>
-          <select class="search-select"><option value="">Year</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018 & Older</option></select>
-          <select class="search-select"><option value="">City</option><option>Islamabad</option><option>Rawalpindi</option><option>Lahore</option><option>Karachi</option><option>Peshawar</option><option>Multan</option></select>
-          <select class="search-select"><option value="">Condition</option><option>New / Unregistered</option><option>Used – Excellent</option><option>Used – Good</option><option>Imported</option><option>Locally Assembled</option></select>
-          <select class="search-select"><option value="">Price Range</option><option>Under 10 Lakh</option><option>10–20 Lakh</option><option>20–40 Lakh</option><option>40–70 Lakh</option><option>70L–1 Crore</option><option>1–2 Crore</option><option>2 Crore+</option></select>
+          <select class="search-select" aria-label="Make / Brand"><option value="">Make / Brand</option><option>Toyota</option><option>Honda</option><option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Porsche</option><option>Land Rover</option><option>Lexus</option><option>Nissan</option><option>Kia</option><option>Hyundai</option><option>MG</option></select>
+          <select class="search-select" aria-label="Vehicle Type"><option value="">Vehicle Type</option><option>Sedan</option><option>Hatchback</option><option>SUV / Jeep</option><option>Crossover</option><option>Coupe</option><option>Electric Vehicle</option><option>Hybrid</option></select>
+          <select class="search-select" aria-label="Year"><option value="">Year</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018 & Older</option></select>
+          <select class="search-select" aria-label="City"><option value="">City</option><option>Islamabad</option><option>Rawalpindi</option><option>Lahore</option><option>Karachi</option><option>Peshawar</option><option>Multan</option></select>
+          <select class="search-select" aria-label="Condition"><option value="">Condition</option><option>New / Unregistered</option><option>Used – Excellent</option><option>Used – Good</option><option>Imported</option><option>Locally Assembled</option></select>
+          <select class="search-select" aria-label="Price Range"><option value="">Price Range</option><option>Under 10 Lakh</option><option>10–20 Lakh</option><option>20–40 Lakh</option><option>40–70 Lakh</option><option>70L–1 Crore</option><option>1–2 Crore</option><option>2 Crore+</option></select>
         </div>
         <button class="shimmer-btn" onclick="searchCars()">Find Cars</button>
       </div>
 
       <!-- Investments form -->
-      <div id="form-investments" class="search-form">
+      <div id="form-investments" class="search-form" role="tabpanel" aria-labelledby="tab-investments">
         <div class="search-grid">
-          <select class="search-select"><option value="">Project</option><option>Bahria Town Islamabad</option><option>Bahria Town Lahore</option><option>DHA Islamabad</option><option>DHA Lahore</option><option>DHA Karachi</option><option>Blue World City</option><option>Capital Smart City</option><option>Park View City</option><option>Nova City Islamabad</option><option>Kingdom Valley</option></select>
-          <select class="search-select"><option value="">Plot Type</option><option>Residential Plot</option><option>Commercial Plot</option><option>Villa / Bungalow</option><option>Apartment</option><option>Shop</option></select>
-          <select class="search-select"><option value="">Plot Size</option><option>3 Marla</option><option>5 Marla</option><option>7 Marla</option><option>10 Marla</option><option>1 Kanal</option><option>2 Kanal</option></select>
-          <select class="search-select"><option value="">Installment Plan</option><option>Cash / Full Payment</option><option>1 Year Plan</option><option>2 Year Plan</option><option>3 Year Plan</option><option>4 Year Plan</option><option>5 Year Plan</option><option>8 Year Plan</option></select>
-          <select class="search-select"><option value="">Budget</option><option>Under 5 Lakh</option><option>5–10 Lakh</option><option>10–25 Lakh</option><option>25–50 Lakh</option><option>50L–1 Crore</option><option>1–3 Crore</option></select>
-          <select class="search-select"><option value="">Status</option><option>New Booking</option><option>Resale / Transfer</option><option>Possession Available</option><option>On Installments</option><option>LDA / RDA Approved</option><option>NOC Approved</option></select>
+          <select class="search-select" aria-label="Project"><option value="">Project</option><option>Bahria Town Islamabad</option><option>Bahria Town Lahore</option><option>DHA Islamabad</option><option>DHA Lahore</option><option>DHA Karachi</option><option>Blue World City</option><option>Capital Smart City</option><option>Park View City</option><option>Nova City Islamabad</option><option>Kingdom Valley</option></select>
+          <select class="search-select" aria-label="Plot Type"><option value="">Plot Type</option><option>Residential Plot</option><option>Commercial Plot</option><option>Villa / Bungalow</option><option>Apartment</option><option>Shop</option></select>
+          <select class="search-select" aria-label="Plot Size"><option value="">Plot Size</option><option>3 Marla</option><option>5 Marla</option><option>7 Marla</option><option>10 Marla</option><option>1 Kanal</option><option>2 Kanal</option></select>
+          <select class="search-select" aria-label="Installment Plan"><option value="">Installment Plan</option><option>Cash / Full Payment</option><option>1 Year Plan</option><option>2 Year Plan</option><option>3 Year Plan</option><option>4 Year Plan</option><option>5 Year Plan</option><option>8 Year Plan</option></select>
+          <select class="search-select" aria-label="Budget"><option value="">Budget</option><option>Under 5 Lakh</option><option>5–10 Lakh</option><option>10–25 Lakh</option><option>25–50 Lakh</option><option>50L–1 Crore</option><option>1–3 Crore</option></select>
+          <select class="search-select" aria-label="Status"><option value="">Status</option><option>New Booking</option><option>Resale / Transfer</option><option>Possession Available</option><option>On Installments</option><option>LDA / RDA Approved</option><option>NOC Approved</option></select>
         </div>
         <button class="shimmer-btn" onclick="searchInvestments()">View Projects</button>
       </div>
@@ -535,7 +539,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="invest-kpi-val green">35%</p>
           </div>
         </div>
-        <p style="font-size:11px;color:rgba(240,236,228,0.25);margin-bottom:8px;">
+        <p style="font-size:11px;color:rgba(240,236,228,0.65);margin-bottom:8px;">
           Last updated: April 2026
         </p>
         <div class="progress-label-row">
@@ -551,8 +555,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </button>
         </div>
-        <p style="font-size:11px;color:rgba(240,236,228,0.3);margin-top:12px;line-height:1.6;">
-          * Projected figures based on current market trends. Returns are not guaranteed. 
+        <p style="font-size:11px;color:rgba(240,236,228,0.65);margin-top:12px;line-height:1.6;">
+          * Projected figures based on current market trends. Returns are not guaranteed.
           Investment carries risk. Consult a financial advisor before investing.
         </p>
       </div>
@@ -581,7 +585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="invest-kpi-val green">42%</p>
           </div>
         </div>
-        <p style="font-size:11px;color:rgba(240,236,228,0.25);margin-bottom:8px;">
+        <p style="font-size:11px;color:rgba(240,236,228,0.65);margin-bottom:8px;">
           Last updated: April 2026
         </p>
         <div class="progress-label-row">
@@ -597,8 +601,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           </button>
         </div>
-        <p style="font-size:11px;color:rgba(240,236,228,0.3);margin-top:12px;line-height:1.6;">
-          * Projected figures based on current market trends. Returns are not guaranteed. 
+        <p style="font-size:11px;color:rgba(240,236,228,0.65);margin-top:12px;line-height:1.6;">
+          * Projected figures based on current market trends. Returns are not guaranteed.
           Investment carries risk. Consult a financial advisor before investing.
         </p>
       </div>
@@ -680,7 +684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div>
         <div class="footer-brand-name">
           <div class="nav-logo" style="width:32px;height:32px;flex-shrink:0;">
-            <img src="assets/1.png" alt="Eagle Hubs" onerror="this.style.display='none'">
+            <img src="assets/1.png" alt="" onerror="this.style.display='none'">
           </div>
           Eagle <span>Hubs</span>
         </div>
@@ -772,20 +776,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <form class="modal-form" onsubmit="submitInquiry(event)">
       <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
       <div>
-        <label class="form-label">Full Name</label>
-        <input type="text" name="name" class="form-input" required placeholder="Your full name">
+        <label class="form-label" for="inq-name">Full Name</label>
+        <input type="text" id="inq-name" name="name" class="form-input" required placeholder="Your full name">
       </div>
       <div>
-        <label class="form-label">Phone Number</label>
-        <input type="tel" name="phone" class="form-input" required placeholder="+92 3XX XXXXXXX">
+        <label class="form-label" for="inq-phone">Phone Number</label>
+        <input type="tel" id="inq-phone" name="phone" class="form-input" required placeholder="+92 3XX XXXXXXX">
       </div>
       <div>
-        <label class="form-label">Email</label>
-        <input type="email" name="email" class="form-input" required placeholder="your@email.com">
+        <label class="form-label" for="inq-email">Email</label>
+        <input type="email" id="inq-email" name="email" class="form-input" required placeholder="your@email.com">
       </div>
       <div>
-        <label class="form-label">Message</label>
-        <textarea name="message" class="form-textarea" placeholder="Tell us about your requirements…"></textarea>
+        <label class="form-label" for="inq-message">Message</label>
+        <textarea id="inq-message" name="message" class="form-textarea" placeholder="Tell us about your requirements…"></textarea>
       </div>
       <div id="form-error" style="display:none; color:#ff5f57; font-size:12px; margin-top:-4px; margin-bottom:8px; font-family:var(--body);"></div>
       <button type="submit" class="shimmer-btn" style="border-radius:6px;">Send Inquiry via WhatsApp</button>

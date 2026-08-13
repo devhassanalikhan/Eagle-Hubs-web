@@ -24,10 +24,11 @@ window.toggleSlide = function() {
   }
 };
 
-/* Load slides 1 and 2 lazily after 2 seconds */
+/* Load slides 1 and 2 lazily after 2 seconds, sized for the viewport */
 setTimeout(() => {
-  document.getElementById('slide-1').style.background = "url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&fm=webp&q=75') center/cover no-repeat";
-  document.getElementById('slide-2').style.background = "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&fm=webp&q=75') center/cover no-repeat";
+  const w = window.innerWidth <= 767 ? 900 : 1920;
+  document.getElementById('slide-1').style.background = "url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=" + w + "&fm=webp&q=75') center/cover no-repeat";
+  document.getElementById('slide-2').style.background = "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=" + w + "&fm=webp&q=75') center/cover no-repeat";
 }, 2000);
 
 /* ─── SEARCH FUNCTIONALITY ─── */
@@ -127,9 +128,10 @@ window.closeMob = function() {
 
 /* ─── SEARCH TAB SWITCH ─── */
 window.switchTab = function(id, btn) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
   document.querySelectorAll('.search-form').forEach(f => f.classList.remove('active'));
   btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
   document.getElementById('form-' + id).classList.add('active');
 };
 
