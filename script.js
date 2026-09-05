@@ -6,13 +6,14 @@ let slideIdx = 0;
 const slides = document.querySelectorAll('.hero-slide');
 
 function nextSlide() {
+  if (!slides.length) return;
   slides[slideIdx].classList.remove('active');
   slideIdx = (slideIdx + 1) % slides.length;
   slides[slideIdx].classList.add('active');
 }
 
 let slidePaused = false;
-let slideInterval = setInterval(nextSlide, 6000);
+let slideInterval = slides.length ? setInterval(nextSlide, 6000) : null;
 window.toggleSlide = function() {
   slidePaused = !slidePaused;
   if (slidePaused) {
@@ -25,11 +26,15 @@ window.toggleSlide = function() {
 };
 
 /* Load slides 1 and 2 lazily after 2 seconds, sized for the viewport */
-setTimeout(() => {
-  const w = window.innerWidth <= 767 ? 900 : 1920;
-  document.getElementById('slide-1').style.background = "url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=" + w + "&fm=webp&q=75') center/cover no-repeat";
-  document.getElementById('slide-2').style.background = "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=" + w + "&fm=webp&q=75') center/cover no-repeat";
-}, 2000);
+if (slides.length) {
+  setTimeout(() => {
+    const w = window.innerWidth <= 767 ? 900 : 1920;
+    const slide1 = document.getElementById('slide-1');
+    const slide2 = document.getElementById('slide-2');
+    if (slide1) slide1.style.background = "url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=" + w + "&fm=webp&q=75') center/cover no-repeat";
+    if (slide2) slide2.style.background = "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=" + w + "&fm=webp&q=75') center/cover no-repeat";
+  }, 2000);
+}
 
 /* ─── SEARCH FUNCTIONALITY ─── */
 window.searchProperties = function() {
@@ -201,6 +206,7 @@ window.scrollCars = function(dir) {
 /* ─── TOUCH GESTURES for carousel ─── */
 (function() {
   const track = document.getElementById('carsTrack');
+  if (!track) return;
   let startX = 0;
   track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
   track.addEventListener('touchend', e => {
@@ -239,9 +245,12 @@ window.closeModal = function() {
   document.body.style.overflow = '';
 };
 
-document.getElementById('inquiryModal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
+const inquiryModalEl = document.getElementById('inquiryModal');
+if (inquiryModalEl) {
+  inquiryModalEl.addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+}
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
