@@ -27,11 +27,11 @@ lead-capture/CRO components, calculators) goes well beyond it.
 
 | # | Task | Status | Notes |
 |---|------|--------|-------|
-| 2.1 | JSON-LD: `Organization` & `LocalBusiness` | Not Started | |
-| 2.2 | JSON-LD: `RealEstateAgent`, `SingleFamilyResidence`, `RealEstateListing` | Not Started | Homepage currently has a basic `RealEstateAgent` block only |
-| 2.3 | JSON-LD: `Car` / `Product` / `Offer` (vehicle marketplace) | Not Started | |
-| 2.4 | JSON-LD: `SoftwareApplication` & `Service` (tech agency) | Not Started | software-development.html has a basic `Service` block only |
-| 2.5 | JSON-LD: `FAQPage` & `BreadcrumbList` on key landing pages | Not Started | |
+| 2.1 | JSON-LD: `Organization` & `LocalBusiness` | Done | Enriched `RealEstateAgent` (extends LocalBusiness/Organization) with logo, image, priceRange, openingHours, sameAs; same block repeated site-wide (index, about, properties, automobiles, investments) with a shared `@id` |
+| 2.2 | JSON-LD: `RealEstateAgent`, `SingleFamilyResidence`, `RealEstateListing` | Done | `properties.html` gets an `ItemList` of the 3 visible listings (`SingleFamilyResidence`, `Apartment`, `Product` for the commercial plaza) with `Offer` pricing |
+| 2.3 | JSON-LD: `Car` / `Product` / `Offer` (vehicle marketplace) | Done | `automobiles.html` gets an `ItemList` of the 4 visible `Car` listings with brand/model/mileage/`Offer` |
+| 2.4 | JSON-LD: `SoftwareApplication` & `Service` (tech agency) | Done (as `Service`, not `SoftwareApplication`) | Skipped `SoftwareApplication` deliberately — the page sells development *services*, not a distributable app, and that type would misrepresent the entity per Google's structured-data guidelines. Instead extended the existing `Service` block with `hasOfferCatalog` listing all 12 visible service cards |
+| 2.5 | JSON-LD: `FAQPage` & `BreadcrumbList` on key landing pages | Done | `FAQPage` added to `about.html`, `properties.html`, `automobiles.html`, `investments.html` (verbatim from each page's visible FAQ section — `software-development.html` has no visible FAQ so none was added there). `BreadcrumbList` added to all 5 non-home pages |
 | 2.6 | GEO: LLM-friendly intro/direct-answer content blocks (entities, stats, bullet points, pricing transparency) | Not Started | |
 | 2.7 | GEO: `robots.txt` directives for AI bots (PerplexityBot, GPTBot, ClaudeBot, Bytespider) while protecting proprietary endpoints | Not Started | |
 | 2.8 | Keyword mapping: Real estate/marketplace terms | Not Started | |
