@@ -6,10 +6,17 @@ Header always set Referrer-Policy "strict-origin-when-cross-origin"
 Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.eaglehubspk.com; connect-src 'self';"
 
-# HTTPS enforcement
+# URL & host canonicalization
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 1. Redirect /index.html to the canonical root (fixes duplicate-URL indexing)
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://www.eaglehubspk.com/ [R=301,L,QSA]
+
+# 2. Force HTTPS and force the www host (single canonical origin)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.eaglehubspk.com/$1 [R=301,L]
 
 # Custom 404
 ErrorDocument 404 /404.html
